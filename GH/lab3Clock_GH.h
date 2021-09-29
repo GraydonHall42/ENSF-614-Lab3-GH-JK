@@ -13,7 +13,7 @@ class Clock{
         //PROMISES: receives integer argument in seconds, uses it to set clock time in 
         // hours, minutes, and seconds
 
-        Clock(int hour, int minute, int second);  
+        Clock(int hours, int minutes, int seconds);  
         // PROMIESES: initializes hours, minutes, and seconds for clock based on user provided arguments
 
         int get_hour () const;
@@ -34,7 +34,7 @@ class Clock{
         void set_second (int arg);
         // PROMISES: set a new value for second with the value of arg
 
-        void incremenet ();
+        void increment ();
         // PROMISES: increments the value of the clock’s time by one second. 
 
         void decrement ();
