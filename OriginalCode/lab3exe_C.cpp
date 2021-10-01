@@ -8,7 +8,7 @@ using std::endl;
 using std::setw;
 using std::setfill;
 
-#include "lab3Clock_GH.h"
+#include "lab3Clock.h"
 
 void print(const Clock& t);
 // REQUIRES: t refers to an object of class Clock with valid values.

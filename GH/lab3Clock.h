@@ -1,3 +1,12 @@
+/*
+* File Name: lab3Clock.h
+* Lab # and Assignment #: Lab 3 Exercise C
+* Lab section: 1
+* Completed by: Graydon Hall and Jared Kraus
+* Submission Date: 2021-10-04
+*/
+
+
 #ifndef lab3_exe_C_Clock
 #define lab3_exe_C_Clock
 /* This class definition represents a clock that shows hours, 
