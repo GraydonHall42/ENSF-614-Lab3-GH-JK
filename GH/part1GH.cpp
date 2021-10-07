@@ -22,7 +22,7 @@ int main()
     // braces. Means that scope of the varibles declared between barces ends
     // when  once program reaches the closing barce.
     {
-        b = new DynString("film");
+        b = new DynString("film");  // b points to memory allocated AND THEN constructor is called
         cout << "BEFORE: " << b->c_str() << endl;
         doSomething(*b, *b);
         cout << "AFTER:  " << b->c_str() << endl;
