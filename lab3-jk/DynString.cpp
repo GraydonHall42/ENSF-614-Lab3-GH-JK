@@ -8,13 +8,13 @@
 #include "DynString.h"
 
 DynString::DynString()
-: lengthM(0), storageM(new char[1])
+    : lengthM(0), storageM(new char[1])
 {
     storageM[0] = '\0';
 }
 
 DynString::DynString(const char *s)
-: lengthM ((int)strlen(s))
+    : lengthM((int)strlen(s))
 {
     storageM = new char[lengthM + 1];
     strcpy(storageM, s);
@@ -23,8 +23,8 @@ DynString::DynString(const char *s)
 
 DynString::~DynString()
 {
-    delete [] storageM;
-    // Point 2 
+    delete[] storageM;
+    // Point 2
 }
 
 int DynString::length() const
@@ -32,10 +32,11 @@ int DynString::length() const
     return lengthM;
 }
 
-char DynString::get_element(int pos)const
+char DynString::get_element(int pos) const
 {
     assert(pos >= 0 && pos < length());
-    return storageM[pos];;
+    return storageM[pos];
+    ;
 }
 
 void DynString::set_element(int pos, char value)
@@ -44,7 +45,7 @@ void DynString::set_element(int pos, char value)
     storageM[pos] = value;
 }
 
-const char * DynString::c_str() const
+const char *DynString::c_str() const
 {
     return storageM;
 }
@@ -54,13 +55,33 @@ void DynString::truncate(int new_length)
     assert(new_length <= length());
     char *smaller_storage = new char[new_length + 1];
     assert(smaller_storage != NULL);
-    
+
     for (int i = 0; i < new_length; i++)
         smaller_storage[i] = storageM[i];
-    
+
     smaller_storage[new_length] = '\0';
-    delete [] storageM;
+    delete[] storageM;
     storageM = smaller_storage;
     lengthM = new_length;
-    
+}
+
+void DynString::append(const DynString &tail)
+{
+
+    char *temp = new char[lengthM + tail.lengthM + 1];
+    int count = 0;
+    while (count < lengthM)
+    {
+        temp[count] = storageM[count];
+        count++;
+    }
+    for (int i = 0; i < tail.lengthM; i++)
+    {
+        temp[count] = tail.storageM[i];
+        count++;
+    }
+    temp[count] = '\0';
+
+    storageM = temp;
+    lengthM = lengthM + tail.lengthM;
 }
